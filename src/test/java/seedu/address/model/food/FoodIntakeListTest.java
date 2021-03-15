@@ -18,11 +18,6 @@ public class FoodIntakeListTest {
     }
 
     @Test
-    public void constructor_null_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new FoodIntakeList(null));
-    }
-
-    @Test
     public void addFoodIntake_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> foodIntakeListTest.addFoodIntake(null));
     }

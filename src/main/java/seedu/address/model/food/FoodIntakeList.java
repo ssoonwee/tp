@@ -24,7 +24,6 @@ public class FoodIntakeList {
      * @param startDate the date that the FoodIntakeList begins collecting from
      */
     public FoodIntakeList(LocalDate startDate) {
-        requireNonNull(startDate);
         this.startDate = startDate;
         this.foodIntakeList = FXCollections.observableArrayList();
     }
