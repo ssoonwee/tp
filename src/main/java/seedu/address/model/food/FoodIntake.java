@@ -1,5 +1,7 @@
 package seedu.address.model.food;
 
+import static java.util.Objects.requireNonNull;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -18,6 +20,8 @@ public class FoodIntake {
      * @param food The related Food object that was consumed
      */
     public FoodIntake(LocalDate date, Food food) {
+        requireNonNull(date);
+        requireNonNull(food);
         this.date = date;
         this.food = food;
     }

@@ -1,5 +1,7 @@
 package seedu.address.model.food;
 
+import static java.util.Objects.requireNonNull;
+
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Objects;
@@ -22,6 +24,7 @@ public class FoodIntakeList {
      * @param startDate the date that the FoodIntakeList begins collecting from
      */
     public FoodIntakeList(LocalDate startDate) {
+        requireNonNull(startDate);
         this.startDate = startDate;
         this.foodIntakeList = FXCollections.observableArrayList();
     }
@@ -40,6 +43,7 @@ public class FoodIntakeList {
      * @param foodIntake FoodIntake object to add to list
      */
     public void addFoodIntake(FoodIntake foodIntake) {
+        requireNonNull(foodIntake);
         this.foodIntakeList.add(foodIntake);
     }
 
@@ -48,7 +52,7 @@ public class FoodIntakeList {
      *
      * @param index index of food intake item
      */
-    public void deleteFoodIntake(int index) throws FoodIntakeNotFoundException {
+    public void deleteFoodIntake(int index) {
         this.foodIntakeList.remove(index);
     }
 
