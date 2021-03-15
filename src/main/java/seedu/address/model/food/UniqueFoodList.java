@@ -1,5 +1,7 @@
 package seedu.address.model.food;
 
+import static java.util.Objects.requireNonNull;
+
 import java.util.Objects;
 
 import javafx.collections.FXCollections;
@@ -27,12 +29,9 @@ public class UniqueFoodList {
      * Adds a food item into the food list.
      *
      * @param foodItem food item
-     * @return success message
      */
-    public String addFoodItem(Food foodItem) {
+    public void addFoodItem(Food foodItem) {
         this.foodList.add(foodItem);
-        String result = "Success adding " + foodItem.getName() + " to food list.";
-        return result;
     }
 
     /**
