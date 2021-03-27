@@ -2,6 +2,7 @@ package seedu.address.logic.parser;
 
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_DATETIME_FORMAT;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_FUTURE_DATETIME;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -58,10 +59,20 @@ public class ParserUtil {
         String trimmedDate = date.trim();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy");
         LocalDate localDate;
+
+        //Adds an alias which today converts to the current LocalDate.
+        if (date.equals("today")) {
+            localDate = LocalDate.now();
+            return localDate;
+        }
+
         try {
             localDate = LocalDate.parse(trimmedDate, formatter);
         } catch (DateTimeParseException de) {
             throw new ParseException(MESSAGE_INVALID_DATETIME_FORMAT);
+        }
+        if (localDate.isAfter(LocalDate.now())) {
+            throw new ParseException(MESSAGE_INVALID_FUTURE_DATETIME);
         }
         return localDate;
     }
