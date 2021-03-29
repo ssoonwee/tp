@@ -27,7 +27,7 @@ public class FoodBuilder {
     }
 
     /**
-     * Initializes the PersonBuilder with the data of {@code personToCopy}.
+     * Initializes the FoodBuilder with the data of {@code foodToCopy}.
      */
     public FoodBuilder(Food foodToCopy) {
         foodName = foodToCopy.getName();
